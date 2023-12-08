@@ -1,0 +1,25 @@
+[<OpenAIObject chat.completion id=chatcmpl-89CEPIm3RWvMqDuyd1JBo54KfjLCn at 0x104788400> JSON: {
+  "id": "chatcmpl-89CEPIm3RWvMqDuyd1JBo54KfjLCn",
+  "object": "chat.completion",
+  "created": 1697202661,
+  "model": "gpt-4-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "function_call": {
+          "name": "generate_goal_oriented_workflow_and_sequence_diagram",
+          "arguments": "\n{\n\"goal_oriented_workflow\": \"1. Define and structure the \\\"schedule delivery\\\" feature in the Food Delivery App.\\n2. Use the \"Scheduling\" module to provide users with an interface and options to specify their preferred delivery time.\\n3. Integrate the \"Scheduling\" module with the app's ordering process to ensure that delivery times are adjustable and factored into the overall order.\\n4. Connect the \"Scheduling\" module to the \"Notification\" module to send alerts to users about upcoming scheduled deliveries.\\n5. Conduct testing of the implemented scheduling and notification process to ensure it adds to customer satisfaction by offering convenient delivery times.\",\n\"mermaid_sequence_diagram\": \"sequenceDiagram\\nparticipant User\\nparticipant Scheduling Module\\nparticipant Notification Module\\nUser->>Scheduling Module: Sets Preferred Delivery Time\\nScheduling Module->>Notification Module: Send Alert\\nNotification Module->>User: Upcoming Delivery Alert\"\n}"
+        }
+      },
+      "finish_reason": "function_call"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 324,
+    "completion_tokens": 205,
+    "total_tokens": 529
+  }
+}]

@@ -1,0 +1,63 @@
+Table User {
+  id int [pk]
+  name varchar
+  email varchar
+  password varchar
+  multiple_addresses text
+}
+
+Table Restaurant_and_Store {
+  id int [pk]
+  name varchar 
+  description text
+  inventory text
+}
+
+Table Order {
+  id int [pk]
+  user_id int
+  store_id int
+  tracking_id int
+  payment_id int
+  favorites bool
+  scheduled_time timestamp
+  review_rating int
+  review_comment text
+  referral_id int
+  order_history text
+}
+
+Table Payment {
+  id int [pk]
+  user_id int
+  payment_method varchar
+}
+
+Table Tracking {
+  id int [pk]
+  order_id int
+  status varchar
+  delivery_time timestamp
+}
+
+Table Referral {
+  id int [pk]
+  user_id int
+  referral_code varchar
+  credits int
+}
+
+Table Discounts_and_Offers {
+  id int [pk]
+  description text
+  offer_code varchar
+  expiry_date date
+}
+
+Ref: "User"."id" < "Order"."user_id"
+Ref: "User"."id" < "Payment"."user_id"
+Ref: "User"."id" < "Referral"."user_id"
+Ref: "Restaurant_and_Store"."id" < "Order"."store_id"
+Ref: "Order"."id" < "Tracking"."order_id"
+Ref: "Order"."payment_id" < "Payment"."id"
+Ref: "Order"."referral_id" < "Referral"."id"

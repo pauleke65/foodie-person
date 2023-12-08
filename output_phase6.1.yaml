@@ -1,0 +1,87 @@
+project:
+  name: Foodie-Person
+  description: A food delivery app that allows users to order food, groceries, and other items from local stores
+
+technologies:
+  frontend:
+    - name: Next.js
+      purpose: Building server-side rendering and static web applications
+      version: latest
+      usage:
+        - Build the user interface
+        - Handling user events 
+        - Dynamic page updates
+      tasks:
+        - User Interface development
+        - Real-time updates on tracking
+        - Interface for payment options
+        - Layout for ratings and reviews
+  backend:
+    - name: Nest.js
+      purpose: Building efficient and scalable Node.js server-side applications
+      version: latest
+      usage:
+        - Management of user data
+        - Handling order transactions 
+        - Routing and request handling
+      tasks:
+        - User authentication
+        - Order handling and processing
+        - Notification handling
+    database:
+      - name: Supabase
+        purpose: Open-source Firebase alternative that provide features like a realtime database, authentication and storage
+        version: latest
+        usage:
+          - Storing user data
+          - Storage of order details
+          - Storing payment details, addresses, and favorites
+        tasks:
+          - Database setup and management
+          - Data query handling
+          - Data validation and secure storage
+features:
+  - name: Order Anything
+    description: Allows users to order a wide range of items from local stores and restaurants.
+  - name: Real-Time Tracking
+    description: Gives users the ability to watch their order's journey from store to doorstep.
+  - name: Scheduled Deliveries
+    description: Makes it easy for users to plan around their availability.
+  - name: Multiple Addresses
+    description: Allows orders to be delivered to different set addresses.
+  - name: Favorites
+    description: Allows users to save and easily reorder from their preferred spots.
+  - name: Promotions
+    description: Provides users with special discounts and offers.
+  - name: Customer Support
+    description: Ensures users have assistance available to resolve any issues.
+  - name: Multiple Payment Options
+    description: Allows for multiple ways for the user to pay for their orders.
+  - name: Ratings and Reviews
+    description: Allows users to share their experiences and read reviews from other users.
+  - name: Referrals
+    description: Incentivizes users to invite their friends to join the app for rewards.
+  - name: Order History
+    description: Lets users view and easily reorder from their past orders.
+
+code_project_structure:
+  root:
+    - node_modules: Contains libraries and utilities.
+    - src: Source code for the project.
+      - components: React components.
+      - pages: Different page components.
+      - api: Api files for communication with backend.
+      - styles: Contains files related to the styling of the application.
+    - public: Contains images, fonts, and other static files.
+    - tests: Contains files for testing project components.
+    - package.json: Contains the metadata of a project and its dependencies.
+    - next.config.js: Configuration file for Next.js application.
+    - package-lock.json: Keeps track of the exact package version installed.
+    - .env: Contains environment variables.
+  server:
+    - src: Contains source files that define the server operation.
+      - module: Module files for implement features (eg. Inventory Management, Scheduling, Payments).
+      - main.ts: Main file to bootstrap the application.
+    - test: Contains backend testing files.
+    - package.json & package-lock.json: Same purpose as in root.
+    - ormconfig.json & .env: Files for database configuration.

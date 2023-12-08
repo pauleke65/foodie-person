@@ -1,0 +1,123 @@
+{
+  "name": "Foodie-Person",
+  "description": "Foodie-Person is a food delivery app that allows users to order food, groceries, and other items from local stores and have them delivered to their doorstep. It offers a wide range of restaurants and stores to choose from, making it easy for users to satisfy their cravings or get essential items without leaving their home.",
+  "capabilities": [
+    {
+      "name": "Order Anything: From meals to groceries, electronics, and more",
+      "description": ""
+    },
+    {
+      "name": "Real-Time Tracking: Know when your order will arrive, allowing you track your order from start to finish",
+      "description": ""
+    },
+    {
+      "name": "Scheduled Deliveries: Plan your deliveries for convenience",
+      "description": ""
+    },
+    {
+      "name": "Multiple Addresses: Save and switch between delivery locations",
+      "description": ""
+    },
+    {
+      "name": "Favorites: Easily reorder from your preferred places",
+      "description": ""
+    },
+    {
+      "name": "Promotions: Enjoy special discounts and offers",
+      "description": ""
+    },
+    {
+      "name": "Customer Support: Get help whenever you need it",
+      "description": ""
+    },
+    {
+      "name": "Multiple Payment Options: Pay with cash, credit card, or PayPal",
+      "description": ""
+    },
+    {
+      "name": "Ratings and Reviews: Share your experience with other users",
+      "description": ""
+    },
+    {
+      "name": "Referrals: Invite friends to join Foodie-Person and earn credits",
+      "description": ""
+    },
+    {
+      "name": "Order History: View past orders and reorder with ease",
+      "description": ""
+    }
+  ],
+  "modules": [
+    { "name": "Inventory Management", "description": "" },
+    { "name": "Scheduling", "description": "" },
+    { "name": "Payments", "description": "" },
+    { "name": "Notification", "description": "" },
+    { "name": "Authentication", "description": "" },
+    { "name": "Content Management", "description": "" },
+    { "name": "Order Management", "description": "" },
+    { "name": "Networking & Communication", "description": "" },
+    { "name": "Promotions", "description": "" }
+  ],
+  "models": [],
+  "stories": [
+    {
+      "story": "As a user, I want to be able to choose from a wide array of restaurants and grocery stores on the app",
+      "goal": "Boost the number of choices users have when ordering on the app",
+      "modules": [
+        "Authentication",
+        "Content Management",
+        "Inventory Management"
+      ],
+      "point": 8
+    },
+    {
+      "story": "As a user, I want to track my food delivery in real time",
+      "goal": "Improve customer experience and provide peace of mind to users about their orders",
+      "modules": ["Order Management", "Notification"],
+      "point": 5
+    },
+    {
+      "story": "As a user, I want to be able to schedule my deliveries",
+      "goal": "Improve customer satisfaction by offering convenient delivery times",
+      "modules": ["Scheduling", "Notification"],
+      "point": 5
+    },
+    {
+      "story": "As a user, I want to switch between multiple addresses for delivery",
+      "goal": "Provide flexibility to users who may be ordering from different locations",
+      "modules": ["Authentication", "Content Management"],
+      "point": 3
+    },
+    {
+      "story": "As a user, I want to be informed about special discounts and offers",
+      "goal": "Increase user engagement and sales through promotions",
+      "modules": ["Promotions", "Notification"],
+      "point": 5
+    },
+    {
+      "story": "As a user, I want to be able to pay with my preferred payment method",
+      "goal": "Improve user experience by allowing flexible payment options",
+      "modules": ["Payments"],
+      "point": 3
+    },
+    {
+      "story": "As a user, I want to share my experience with other users through ratings and reviews",
+      "goal": "Improve the app's trustworthiness and credibility",
+      "modules": ["Networking & Communication"],
+      "point": 3
+    },
+    {
+      "story": "As a user, I want to earn credits by inviting friends to join Foodie-Person",
+      "goal": "Increase user base through referrals",
+      "modules": ["Promotions", "Networking & Communication"],
+      "point": 5
+    },
+    {
+      "story": "As a user, I want to view and easily re-order from my order history",
+      "goal": "Improve user experience by simplifying the reordering process",
+      "modules": ["Order Management"],
+      "point": 3
+    }
+  ],
+  "mermaid_er_diagram": "erDiagram\n    User ||--o{ Order : places\n    User ||--o{ Payment : uses\n    User ||--o{ Referral : has\n    Order ||--o{ Tracking : tracks\n    Order }o--|| Payment : is_paid_through\n    Order }o--|| Referral : referred_by\n    Restaurant_and_Store ||--o{ Order : has\n    Discounts_and_Offers ||--o{ User : informs\n    Discounts_and_Offers ||--o{ Order : applies_to"
+}

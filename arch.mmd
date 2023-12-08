@@ -1,0 +1,10 @@
+erDiagram
+    User ||--o{ Order : places
+    User ||--o{ Payment : uses
+    User ||--o{ Referral : has
+    Order ||--o{ Tracking : tracks
+    Order }o--|| Payment : is_paid_through
+    Order }o--|| Referral : referred_by
+    Restaurant_and_Store ||--o{ Order : has
+    Discounts_and_Offers ||--o{ User : informs
+    Discounts_and_Offers ||--o{ Order : applies_to

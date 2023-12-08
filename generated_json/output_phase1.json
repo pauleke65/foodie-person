@@ -1,0 +1,133 @@
+{
+  "name": "Foodie-Person",
+  "description": "Foodie-Person is a food delivery app that allows users to order food, groceries, and other items from local stores and have them delivered to their doorstep. It offers a wide range of restaurants and stores to choose from, making it easy for users to satisfy their cravings or get essential items without leaving their home.",
+  "capabilities": [
+    {
+      "name": "Order Anything: From meals to groceries, electronics, and more",
+      "description": ""
+    },
+    {
+      "name": "Real-Time Tracking: Know when your order will arrive, allowing you track your order from start to finish",
+      "description": ""
+    },
+    {
+      "name": "Scheduled Deliveries: Plan your deliveries for convenience",
+      "description": ""
+    },
+    {
+      "name": "Multiple Addresses: Save and switch between delivery locations",
+      "description": ""
+    },
+    {
+      "name": "Favorites: Easily reorder from your preferred places",
+      "description": ""
+    },
+    {
+      "name": "Promotions: Enjoy special discounts and offers",
+      "description": ""
+    },
+    {
+      "name": "Customer Support: Get help whenever you need it",
+      "description": ""
+    },
+    {
+      "name": "Multiple Payment Options: Pay with cash, credit card, or PayPal",
+      "description": ""
+    },
+    {
+      "name": "Ratings and Reviews: Share your experience with other users",
+      "description": ""
+    },
+    {
+      "name": "Referrals: Invite friends to join Foodie-Person and earn credits",
+      "description": ""
+    },
+    {
+      "name": "Order History: View past orders and reorder with ease",
+      "description": ""
+    }
+  ],
+  "modules": [
+    { "name": "Inventory Management", "description": "" },
+    { "name": "Scheduling", "description": "" },
+    { "name": "Payments", "description": "" },
+    { "name": "Notification", "description": "" },
+    { "name": "Authentication", "description": "" },
+    { "name": "Content Management", "description": "" },
+    { "name": "Order Management", "description": "" },
+    { "name": "Networking & Communication", "description": "" },
+    { "name": "Promotions", "description": "" }
+  ],
+  "models": [],
+  "stories": [
+    {
+      "story": "As a user, I want to be able to choose from a wide array of restaurants and grocery stores on the app",
+      "goal": "Boost the number of choices users have when ordering on the app",
+      "modules": [
+        "Authentication",
+        "Content Management",
+        "Inventory Management"
+      ],
+      "point": 8,
+      "workflow": "Step 1: User launches the app\n\nStep 2: The 'Authentication' module handles user login or signup process\n\nStep 3: Once authenticated, the 'Content Management' module generates and displays a vast selection of restaurants and grocery stores available for the user to choose from\n\nStep 4: User selects their preferred restaurant or grocery store\n\nStep 5: The 'Inventory Management' module retrieves and displays the items available from the selected restaurant or store\n\nStep 6: User picks items to add to their shopping cart\n\nStep 7: User confirms their order and proceeds to checkout\n\nStep 8: User enters delivery address and preferred payment method\n\nStep 9: Order is processed and a delivery driver is dispatched to pick up and deliver the order to the user's specified address \n\nStep 10: User is notified of the delivery progress until order is delivered to their doorstep",
+      "sequence_diagram": "sequenceDiagram\nUser->>+App: Open App\nApp->>+Authentication: Authenticate User\nAuthentication-->>-User: User Authenticated\nUser->>+Content Management: Request for restaurants/grocery stores\nContent Management-->>-User: Display available restaurants/grocery stores\nUser->>+Inventory Management: Select restaurant/store\nInventory Management-->>-User: Display available items\nUser->>App: Add items to cart and checkout\nApp->>Externals: Process payment and dispatch driver\nExternals-->>-User: Notify User of progress until delivery"
+    },
+    {
+      "story": "As a user, I want to track my food delivery in real time",
+      "goal": "Improve customer experience and provide peace of mind to users about their orders",
+      "modules": ["Order Management", "Notification"],
+      "point": 5,
+      "workflow": "1. User opens the food delivery app and logs in.\n2. User places an order from a local store or restaurant using the 'Order Management' module.\n3. After the order is placed, the system confirms the order and assigns a delivery person to it.\n4. The 'Order Management' module updates the order status and location in real-time as the order is prepared, picked up, and during transit.\n5. The 'Notification' module sends real-time updates to the user's device regarding the order status and location.\n6. User can open the app anytime and track the order's current location and status.\n7. After the delivery is completed, the 'Order Management' module updates the status to 'Delivered'.\n8. The 'Notification' module sends a final update to the user announcing the completion of delivery.",
+      "sequence_diagram": "sequenceDiagram\n    participant User\n    participant Order Management\n    participant Notification\n    User->>Order Management: Place Order\n    Order Management-->>User: Confirm Order\n    Order Management->>Notification: Send Order Confirmation Notification\n    Order Management->>Notification: Send Real-Time Order Updates\n    User->>Order Management: Track Order\n    Order Management-->>User: Share Order Location and Status\n    Order Management->>Notification: Send Order Delivered Notification"
+    },
+    {
+      "story": "As a user, I want to switch between multiple addresses for delivery",
+      "goal": "Provide flexibility to users who may be ordering from different locations",
+      "modules": ["Authentication", "Content Management"],
+      "point": 3,
+      "workflow": "1. The user Logs in through the 'Authentication' module.\n2. User accesses account details through 'User account' module (not mentioned in the original story but necessary for address management).\n3. User selects 'manage addresses' option under account details.\n4. 'Content Management' module presents all previously saved addresses to the user.\n5. User gets to either choose an already saved address or enter a new one.\n6. After choosing the address, the Delivery module (not mentioned in the original story but necessary for delivery operations) kick-starts the delivery process to the selected address.",
+      "sequence_diagram": "sequenceDiagram\n    participant A as Authentication\n    participant UA as User Account\n    participant CM as Content Management\n    participant D as Delivery\n\n    Note right of A: User logs in\n    A->>UA: Access account details\n    UA->>CM: Retrieve saved addresses\n    Note over CM: User can select an existing address or enter a new one\n    CM-->>UA: User selects/enters address\n    UA-->>D: Start delivery process"
+    },
+    {
+      "story": "As a user, I want to be informed about special discounts and offers",
+      "goal": "Increase user engagement and sales through promotions",
+      "modules": ["Promotions", "Notification"],
+      "point": 5,
+      "workflow": "1. Understand the promotions and discounts offered by the restaurants and stores. \n2. Develop code in the Promotions module to support different types of promotions such as sale, holiday specials, discounts, etc. \n3. Integrate the Promotions module with the main app so that it can display the current promotions on the app's homepage and relevant store pages. \n4. Implement a feature in the Promotions module to determine which users are eligible for the promotions. \n5. Develop code in the Notifications module to send push notifications about the promotions to eligible users. \n6. Integrate the Notifications module with the Promotions module to automate the process of sending notifications whenever a new promotion is available. \n7. Conduct thorough testing to ensure that notifications are sent accurately and on time, and that promotions are displayed correctly and can be used by users. \n8. Launch the feature for a small group of users to assess user engagement and sales impact. \n9. Based on the feedback and results, make any necessary adjustments and roll out the feature to all users.",
+      "sequence_diagram": "sequenceDiagram\nparticipant User\nparticipant App\nparticipant Promotions\nparticipant Notifications\n\nUser->>App: Open App\nApp->>Promotions: Fetch promotions\nPromotions-->>App: Send promotions\nApp-->>User: Display promotions\nUser->>App: Chooses a promotion\n\nApp->>Notifications: Trigger notification\nNotifications-->>User: Send promotion notification"
+    },
+    {
+      "story": "As a user, I want to be able to pay with my preferred payment method",
+      "goal": "Improve user experience by allowing flexible payment options",
+      "modules": ["Payments"],
+      "point": 3,
+      "workflow": "1. Authenticate the user using the Authentication Module.\n2. Retrieve list of available payment methods from the Payments Module.\n3. Provide visual interface to display available payment methods and let user select their preferred option using the User Interface Module.\n4. Upon selection, process payment using chosen method with integrations from the Payments Module.\n5. Confirm payment processing, and provide feedback to the user using the Notifications Module.",
+      "sequence_diagram": "sequenceDiagram\n    User->>Authentication Module: Log in\n    Authentication Module-->>User: Access granted\n    User->>Payments Module: Retrieve payment methods\n    Payments Module-->>User: Display payment methods\n    User->>User Interface Module: Select Payment Method\n    User Interface Module->>Payments Module: Process Payment\n    Payments Module-->>Notifications Module: payment confirmation\n    Notifications Module-->>User: Display Payment confirmation"
+    },
+    {
+      "story": "As a user, I want to share my experience with other users through ratings and reviews",
+      "goal": "Improve the app's trustworthiness and credibility",
+      "modules": ["Networking & Communication"],
+      "point": 3,
+      "workflow": "1. Identify the module 'Networking & Communication' to enable data transfer and interaction between the user and the food delivery app.\n2. Use the identified module to create functionality for users to submit ratings and reviews for the food items and services they receive from the food delivery app.\n3. The submitted reviews and ratings will be stored in the app's database.\n4. Create a feature to display these reviews and ratings on the app, allowing other users to view them.\n5. Finally, perform rigorous testing to ensure that the new feature works well, helping improve the app's trustworthiness and credibility.",
+      "sequence_diagram": "sequenceDiagram\n    participant User\n    participant Networking & Communication\n    participant Database\n    participant App\n    User->>+Networking & Communication: Submit rating & review\n    Networking & Communication->>+Database: Store rating & review\n    Database-->>-Networking & Communication: Confirm submission\n    Networking & Communication-->>-User: Confirm submission\n    App->>+Networking & Communication: Request rating & review\n    Networking & Communication->>+Database: Retrieve rating & review\n    Database-->>-Networking & Communication: Return rating & review\n    Networking & Communication-->>-App: Display rating & review"
+    },
+    {
+      "story": "As a user, I want to earn credits by inviting friends to join Foodie-Person",
+      "goal": "Increase user base through referrals",
+      "modules": ["Promotions", "Networking & Communication"],
+      "point": 5,
+      "workflow": "1. User logs into the Foodie-Person App. \n2. User navigates to the Promotions module. \n3. User selects the 'Refer a Friend' option. \n4. The Networking & Communication module generates a unique referral link for the user. \n5. The App allows the user to share the referral link via various social media or messaging platforms. \n6. When a new user signs up using the referral link, the App tracks it back to the original sender. \n7. The App awards the user with the credits based on the successful referral and updates their account within the Promotions module. \n8. The user receives a notification of the earned credits.",
+      "sequence_diagram": "sequenceDiagram \n        participant U as User \n        participant P as Promotions module \n        participant N as Networking & Communication module \n        U->>P: Access 'Refer a Friend' option \n        P->>N: Request to generate referral link \n        N-->>U: Provide referral link for sharing \n        Note over N,U: User shares the referral link \n        U->>P: New user signed up with referral link \n        P->>U: Award credits and update account \n        Note over U: User receives notification of earned credits"
+    },
+    {
+      "story": "As a user, I want to view and easily re-order from my order history",
+      "goal": "Improve user experience by simplifying the reordering process",
+      "modules": ["Order Management"],
+      "point": 3,
+      "workflow": "Based on the user story and its goal, the steps for code development may include:\n1. Authenticate User: Check if the user is signed in before they can access their order history.\n2. Fetch Order History: Upon successful authentication, fetch the user's previous orders from the database.\n3. Display Order History: Show the order history in a list view or grid view based on user preferences.\n4. Select Order: Allow the user to select an order they want to reorder.\n5. Re-Order: Populate the checkout form with the selected order details, allowing the user to change quantities if needed.\n6. Submit Order: Submit the order for processing and payment. On successful payment, provide an order confirmation.\n7. Update Order History: Finally, update the order history to include the new order for future reference.\n8. Notify User: Send a confirmation notification to the user about their successful reorder.",
+      "sequence_diagram": "sequenceDiagram\n  participant User\n  participant App\n  participant Order Management\n  User->>App: Sign In\n  App->>Order Management: Authenticate User\n  Order Management-->>App: Authentication Response\n  App->>Order Management: Fetch Order History\n  Order Management-->>App: Order History\n  User->>App: Select Order to Re-Order\n  App->>Order Management: Re-Order Request\n  Order Management-->>App: Checkout Details\n  User->>App: Confirm Order\n  App->>Order Management: Submit Order\n  Order Management-->>App: Order Confirmation\n  App->>User: Display Confirmation and Update Order History"
+    }
+  ],
+  "mermaid_er_diagram": "erDiagram\n    User ||--o{ Order : places\n    User ||--o{ Payment : uses\n    User ||--o{ Referral : has\n    Order ||--o{ Tracking : tracks\n    Order }o--|| Payment : is_paid_through\n    Order }o--|| Referral : referred_by\n    Restaurant_and_Store ||--o{ Order : has\n    Discounts_and_Offers ||--o{ User : informs\n    Discounts_and_Offers ||--o{ Order : applies_to"
+}
